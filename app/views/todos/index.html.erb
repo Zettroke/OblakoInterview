@@ -1,0 +1,28 @@
+<h1>Задачи</h1>
+<a id="add_todo"><%= image_tag "addTodoIcon.png", style: "background: #ccc"%></a>
+<div>
+<% @projects.each do |p| %>
+    <h2><%= p.title %></h2>
+    <ul>
+        <% p.todos.each do |todo| %>
+        <li><%= todo.text %></li>
+        <% end %>
+    </ul>
+<% end %>
+</div>
+<h1>Новая задача</h1>
+<%= form_with scope: :todo, url: todos_path, local: true, id: :todo_form do |form|%>
+    <div>
+    <%= form.label :text, "Текст"%>
+    <%= form.text_field :text %>
+    </div>
+    <div>
+    <%= form.label :project_id, "Проект"%>
+    <%= form.select :project_id do%>
+      <%= options_for_select @projects.map { |p| [p.title, p.id] } %>
+    <% end %>
+    </div>
+
+    <a href="#" id="rem_todo">ОТМЕНА</a>
+    <a href="javascript: $('#todo_form').submit()">OK</a>
+<% end %>

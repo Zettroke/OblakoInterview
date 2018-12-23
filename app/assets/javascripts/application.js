@@ -12,3 +12,13 @@
 //
 //= require rails-ujs
 //= require_tree .
+//= require jquery
+//= require jquery_ujs
+$(document).ready(function() {
+    $('#add_todo').click(function (event) {
+        $('#todo_form').show();
+    });
+    $('#rem_todo').click(function (event) {
+        $('#todo_form').hide();
+    });
+});
