@@ -1,0 +1,124 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+@font-face {
+  font-family: "OpenSans";
+  src: font_url("OpenSans-Regular.ttf");
+}
+
+body{
+  font-family: "OpenSans";
+}
+
+#create_form{
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.51);
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.header_div{
+  height: 60px;
+  position: relative;
+}
+
+.header_div h1 {
+  margin: auto;
+  line-height: 60px;
+  text-align: center;
+  color: #fff;
+}
+
+.header_div img{
+  position: absolute;
+  top: calc(50% - 21px / 2);
+  right: 20px;
+}
+
+.task_card{
+  -webkit-box-shadow: 0px 1px 4px 0px rgba(0,0,0,0.75);
+  -moz-box-shadow: 0px 1px 4px 0px rgba(0,0,0,0.75);
+  box-shadow: 0px 1px 4px 0px rgba(0,0,0,0.75);
+  padding-bottom: 20px;
+}
+
+.task_card h2{
+  display: inline;
+  padding-left: 10px;
+  line-height: 2;
+}
+
+.task_card hr{
+  margin-top: 0;
+}
+.task_card ul{
+  padding-left: 20px;
+}
+
+.task_card li{
+  list-style-type: none;
+  margin: 20px 0;
+}
+.task_card span{
+
+}
+
+.task_content{
+  /*margin-left: 20px;*/
+}
+
+.select2-selection, .select2-selection__rendered, .select2-selection__arrow {
+
+  height: 40px !important;
+
+  span {
+
+    line-height: 40px !important;
+
+    text-align: left;
+
+  }
+
+}
+
+.select2-selection {
+
+  border-radius: 0 !important;
+
+}
+
+.select2{
+  width: 100%!important;
+}
+
+#create_form #text{
+  line-height: 40px;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.button_links{
+  display: inline-block;
+  width: 49%;
+  text-align: center;
+  padding: 15px 0;
+  margin: 10px 0;
+}
