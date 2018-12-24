@@ -18,4 +18,10 @@ class TodosController < ApplicationController
 
     redirect_to root_path
   end
+
+  def get_projects
+    render json: Project.all.to_json(:include => :todos)
+  end
+
+
 end
