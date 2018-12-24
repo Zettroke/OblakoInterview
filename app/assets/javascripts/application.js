@@ -27,22 +27,22 @@ $(document).ready(function() {
         $('#todo_form').hide();
     });
 
-    let checkboxes = $('#content input');
+    let fuck_uglifier = $('#content input');
     let has_init = false;
 
-    checkboxes.iCheck({
+    fuck_uglifier.iCheck({
         checkboxClass: 'icheckbox_square-blue',
         radioClass: 'iradio_square-blue',
     });
 
-    checkboxes.on('ifChecked', function(event){
+    fuck_uglifier.on('ifChecked', function(event){
         $(event.target).parent().next().css('text-decoration-line', 'line-through');
         if (has_init) {
             $(event.target).parent().parent().submit();
         }
     });
 
-    checkboxes.on('ifUnchecked', function (event) {
+    fuck_uglifier.on('ifUnchecked', function (event) {
         $(event.target).parent().next().css('text-decoration-line', 'initial');
         if (has_init) {
             $(event.target).parent().parent().submit();
