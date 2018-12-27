@@ -1,0 +1,16 @@
+PODS:
+  - M13Checkbox (2.1.2)
+
+DEPENDENCIES:
+  - M13Checkbox (~> 2.1.1)
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - M13Checkbox
+
+SPEC CHECKSUMS:
+  M13Checkbox: fbc53145e3ca8ecd1c444a76439bdc0ddb17b008
+
+PODFILE CHECKSUM: 644b21edf42a07042cfe1cdc82625ce0236dd1cd
+
+COCOAPODS: 1.5.2

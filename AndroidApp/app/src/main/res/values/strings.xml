@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">OblakoTODO</string>
+    <string name="server_url">https://thawing-sands-41266.herokuapp.com</string>
+    <string name="title_activity_todo_create">TodoCreateActivity</string>
+</resources>

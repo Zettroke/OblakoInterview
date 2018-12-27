@@ -1,5 +1,5 @@
 class TodosController < ApplicationController
-  protect_from_forgery except: :update
+  protect_from_forgery except: [:update, :create]
   def index
     @projects = Project.all
   end
