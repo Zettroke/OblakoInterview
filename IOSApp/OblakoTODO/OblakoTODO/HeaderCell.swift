@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 class HeaderCell: UITableViewCell{
-    @IBOutlet weak var header: UILabel!
+    //@IBOutlet weak var header: UILabel!
     
     
     
