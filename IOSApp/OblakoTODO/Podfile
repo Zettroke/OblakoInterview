@@ -7,5 +7,5 @@ target 'OblakoTODO' do
 
   # Pods for OblakoTODO
 pod ‘M13Checkbox’,’~>2.1.1’
-
+pod ‘Alamofire’, ‘~>3.5’
 end

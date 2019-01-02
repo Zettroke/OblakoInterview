@@ -15,6 +15,8 @@
 		62A21CDE21D30FD400CADDB4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 62A21CDD21D30FD400CADDB4 /* Assets.xcassets */; };
 		62A21CE121D30FD400CADDB4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 62A21CDF21D30FD400CADDB4 /* LaunchScreen.storyboard */; };
 		62A2CB4021D577E500D24FC8 /* AddTodoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62A2CB3F21D577E500D24FC8 /* AddTodoController.swift */; };
+		62C2025321DD033100F1B81A /* CreationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C2025221DD033100F1B81A /* CreationCell.swift */; };
+		62C2025521DD0CBD00F1B81A /* ProjectCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C2025421DD0CBD00F1B81A /* ProjectCell.swift */; };
 		A05D425FEC0FD89318BD22CD /* Pods_OblakoTODO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 369A151E258AB165FD1D4CB6 /* Pods_OblakoTODO.framework */; };
 /* End PBXBuildFile section */
 
@@ -31,6 +33,8 @@
 		62A21CE021D30FD400CADDB4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		62A21CE221D30FD400CADDB4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		62A2CB3F21D577E500D24FC8 /* AddTodoController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTodoController.swift; sourceTree = "<group>"; };
+		62C2025221DD033100F1B81A /* CreationCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreationCell.swift; sourceTree = "<group>"; };
+		62C2025421DD0CBD00F1B81A /* ProjectCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectCell.swift; sourceTree = "<group>"; };
 		C14ACFCDEAFA610F19CF2525 /* Pods-OblakoTODO.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OblakoTODO.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OblakoTODO/Pods-OblakoTODO.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -84,6 +88,8 @@
 				62A021C021D50EB70074AC07 /* TodoCell.swift */,
 				62A021C221D510E40074AC07 /* HeaderCell.swift */,
 				62A2CB3F21D577E500D24FC8 /* AddTodoController.swift */,
+				62C2025221DD033100F1B81A /* CreationCell.swift */,
+				62C2025421DD0CBD00F1B81A /* ProjectCell.swift */,
 			);
 			path = OblakoTODO;
 			sourceTree = "<group>";
@@ -191,10 +197,12 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-OblakoTODO/Pods-OblakoTODO-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/M13Checkbox/M13Checkbox.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/M13Checkbox.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -212,7 +220,9 @@
 				62A21CD721D30FD300CADDB4 /* AppDelegate.swift in Sources */,
 				62A021C321D510E40074AC07 /* HeaderCell.swift in Sources */,
 				62A2CB4021D577E500D24FC8 /* AddTodoController.swift in Sources */,
+				62C2025521DD0CBD00F1B81A /* ProjectCell.swift in Sources */,
 				62A021C121D50EB70074AC07 /* TodoCell.swift in Sources */,
+				62C2025321DD033100F1B81A /* CreationCell.swift in Sources */,
 				624553F221D45136006E1705 /* TodosController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

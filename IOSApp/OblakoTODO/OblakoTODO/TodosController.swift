@@ -9,47 +9,55 @@
 import Foundation
 import UIKit
 import M13Checkbox
+import Alamofire
 
 class TodosController: UITableViewController {
     
     @IBOutlet var table: UITableView!
     
     let color = UIColor(red: CGFloat(0x3A)/255.0, green: CGFloat(0xAF)/255.0, blue: CGFloat(0xDA)/255.0, alpha: CGFloat(1))
+
+    var data_json = [NSDictionary]()
     
-    var data = [[String]]()
-    var checked = [[Bool]]()
+    
+    func get_data(){
+        Alamofire.request(.GET, "https://thawing-sands-41266.herokuapp.com/get_json").responseJSON {
+            (response) in switch response.result{
+                
+            case .Success(let JSON):
+                self.data_json = (JSON as! [NSDictionary])
+                print("data fetched!!!")
+                self.table.reloadData()
+                
+            case .Failure(let err):
+                print(err)
+                
+            }
+            
+        }
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        get_data()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBar.barStyle = UIBarStyle.Black
         self.navigationController?.navigationBar.barTintColor = color
         
+        self.table.tableFooterView = UIView()
         
-        data = [
-            ["Family", "Do it", "Do that", "Do this"],
-            ["Family1", "Do it1", "Do that1", "Do this1"],
-            ["Family2", "Do it2", "Do that2", "Do this2"],
-            ["Family3", "Do it3", "Do that3", "Do this3"],
-        ]
-        
-        checked = [
-            [false, true, false],
-            [false, true, false],
-            [false, true, false],
-            [false, true, false]
-        ]
-        
-        print("dksajdksadjlsajdklsadjsakldjsadkasjl!!!!!!111")
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return data[section].count-1;
+        return (data_json[section]["todos"] as! [NSDictionary]).count
     }
     
     override func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        var header: HeaderCell = tableView.dequeueReusableCellWithIdentifier("header") as! HeaderCell;
+        let header: HeaderCell = tableView.dequeueReusableCellWithIdentifier("header") as! HeaderCell;
         
-        header.textLabel!.text = data[section][0]
+        header.textLabel!.text = data_json[section]["title"] as! String
         header.textLabel!.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0)
         
         return header
@@ -59,31 +67,38 @@ class TodosController: UITableViewController {
     }
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         var cell: TodoCell = tableView.dequeueReusableCellWithIdentifier("task") as! TodoCell
+        
+    
         cell.selectionStyle = UITableViewCellSelectionStyle.None
         cell.checkbox.boxType = M13Checkbox.BoxType.Square
         cell.checkbox.stateChangeAnimation = M13Checkbox.Animation.Fill
         
         cell.checkbox.tintColor = color
-        //cell.checkbox.secondaryTintColor = color
-        //cell.checkbox.secondaryCheckmarkTintColor = color
         
+        let todos = data_json[indexPath.section]["todos"] as! [NSDictionary]
         
-        if (checked[indexPath.section][indexPath.row]){
-            let attributeString: NSMutableAttributedString =  NSMutableAttributedString(string: data[indexPath.section][indexPath.row+1])
+        if (todos[indexPath.row]["isCompleted"] as! Bool){
+            let attributeString: NSMutableAttributedString =  NSMutableAttributedString(string: todos[indexPath.row]["text"] as! String)
             attributeString.addAttribute(NSStrikethroughStyleAttributeName, value: 2, range: NSMakeRange(0, attributeString.length))
             
             
             cell.task.attributedText = attributeString;
             cell.checkbox.setCheckState(M13Checkbox.CheckState.Checked, animated: false)
         }else{
-            cell.task.attributedText = NSMutableAttributedString(string: data[indexPath.section][indexPath.row+1])
+            cell.task.attributedText = NSMutableAttributedString(string: todos[indexPath.row]["text"] as! String)
+            cell.checkbox.setCheckState(M13Checkbox.CheckState.Unchecked, animated: false)
         }
+        
+        cell.parent_table_controller = self
+        cell.todo_id = todos[indexPath.row]["id"] as! Int
         
         return cell
     }
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return data.count;
+        
+        return data_json.count;
+        // return data.count;
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue!, sender: AnyObject!) {
@@ -92,7 +107,7 @@ class TodosController: UITableViewController {
 
         let tableVC = navVC?.viewControllers.first as! AddTodoController
 
-        tableVC.data = data
+        tableVC.data = data_json
         
     }
 }

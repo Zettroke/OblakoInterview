@@ -10,10 +10,15 @@ import Foundation
 import UIKit
 
 import M13Checkbox
+import Alamofire
 
 
 class TodoCell: UITableViewCell{
     @IBOutlet weak var task: UILabel!
+    @IBOutlet weak var checkbox: M13Checkbox!
+    
+    var todo_id = -1
+    var parent_table_controller: TodosController!
     
     @IBAction func check(sender: M13Checkbox) {
         if sender.checkState == M13Checkbox.CheckState.Checked{
@@ -29,8 +34,13 @@ class TodoCell: UITableViewCell{
             task.attributedText = attributeString;
         }
         
+        
+        Alamofire.request(.POST, "https://thawing-sands-41266.herokuapp.com/todos/\(todo_id)").responseData { (data) in
+            self.parent_table_controller.get_data()
+        }
+        
     }
-    @IBOutlet weak var checkbox: M13Checkbox!
+    
     
     
 }

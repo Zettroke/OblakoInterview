@@ -1,16 +1,20 @@
 PODS:
+  - Alamofire (3.5.1)
   - M13Checkbox (2.1.2)
 
 DEPENDENCIES:
+  - Alamofire (~> 3.5)
   - M13Checkbox (~> 2.1.1)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
+    - Alamofire
     - M13Checkbox
 
 SPEC CHECKSUMS:
+  Alamofire: 0dfba1184a543e2aa160f4e39cac4e8aba48d223
   M13Checkbox: fbc53145e3ca8ecd1c444a76439bdc0ddb17b008
 
-PODFILE CHECKSUM: 644b21edf42a07042cfe1cdc82625ce0236dd1cd
+PODFILE CHECKSUM: cefcaf595ee5d51df0d31d218959fe33782595dd
 
 COCOAPODS: 1.5.2
